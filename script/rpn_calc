@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require_relative "../lib/calculator"
+
+puts "Ready for RPN input. Quit at any time with CTRL+C or 'q'..."
+@calculator = Calculator.new
+
+at_exit { puts "Exiting..." }
+
+begin
+  input = gets.chomp # snag a line of input, minus the newline character
+  puts "> #{@calculator.parse(input)}" # ...and pass it on for evaluation
+
+rescue ArgumentError => e # gracefully recover from RPN syntax errors
+  puts "Error: #{e.message}" and retry # ...and allow the user to try again
+
+rescue Interrupt  # catch EOF, CTRL+C, etc.
+  exit(1) # ...and exit with an nonzero status
+
+end while input # ...and then keep on doing it until we're asked to stop
+
+exit(0) # finally, report successful completion
