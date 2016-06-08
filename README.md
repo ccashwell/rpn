@@ -5,13 +5,14 @@ This is a super simple command-line implementation of a calculator using RPN
 
 
 ## Usage
+
 Make sure the script is executable:
 
-    chmod +x ./script/rpn-calc
+    chmod +x ./script/rpn_calc
 
 Fire it up:
 
-    ./script/rpn-calc
+    ./script/rpn_calc
 
 Do maths:
 
@@ -35,3 +36,9 @@ Do maths:
     > -18.0
     q
     Exiting...
+
+## Notes
+
+- No tests were included so as to avoid any external dependencies.
+- Operations are limited to the four basic operators: `+`, `-`, `*` and `/`.
+- I chose to implement this as an executable for ease of use.
