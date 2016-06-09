@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+require_relative "../lib/calculator"
+
+puts "Running test cases specified in the requirements..."
+
+test_cases = {
+  "5 8 +" => 13,
+  "-3 -2 * 5 +" => 11,
+  "2 9 3 + *" => 24,
+  "20 13 - 2 /" => 3.5
+}
+
+test_cases.each do |test_case, expected_output|
+  calculator = Calculator.new
+  output = 0
+  test_case.split.each {|input| output = calculator.parse(input)}
+  if output == expected_output
+    puts "[PASS] #{test_case} equals #{expected_output} ✓" and next
+  else
+    puts "[FAIL] #{test_case} did not equal #{expected_output} ✗" and abort
+  end
+end
+
+exit(0)
