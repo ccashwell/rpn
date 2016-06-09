@@ -39,6 +39,8 @@ Do maths:
 
 ## Notes
 
-- No tests were included so as to avoid any external dependencies.
 - Operations are limited to the four basic operators: `+`, `-`, `*` and `/`.
 - I chose to implement this as an executable for ease of use.
+- All tests provided in the requirements document are implemented and passing:
+
+        chmod +x ./script/tests && ./script/tests
